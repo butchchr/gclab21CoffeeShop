@@ -7,7 +7,7 @@ using System.Web;
 namespace gcCoffeeShop.Models
 {
     public class User
-    {
+    {   
         public string Title { get; set; }
         
         [Display(Name = "First Name")]

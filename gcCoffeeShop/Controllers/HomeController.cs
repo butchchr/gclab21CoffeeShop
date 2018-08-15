@@ -58,8 +58,6 @@ namespace gcCoffeeShop.Controllers
             if (Request.Cookies["UserFirstNameCookie"] == null)
             {
                 UserCookie = new HttpCookie("UserFirstNameCookie");
-                UserCookie.Values ["FirstName"] = model.FirstName;
-                UserCookie.Values["FavoriteCoffee"] = model.FavoriteCoffee;
                 UserCookie.Expires = DateTime.UtcNow.AddYears(1);
             }
             else
@@ -67,12 +65,11 @@ namespace gcCoffeeShop.Controllers
                 UserCookie = Request.Cookies["UserFirstNameCookie"];
             }
             UserCookie.Values ["FirstName"]  = model.FirstName.ToString();
-            UserCookie.Values ["FavoriteCoffee"] = model.FavoriteCoffee.ToString();
+            //UserCookie.Values ["FavoriteCoffee"] = model.FavoriteCoffee.ToString();
             Response.Cookies.Add(UserCookie);
             ViewBag.FirstName = model.FirstName;
             ViewBag.FavoriteCoffee = model.FavoriteCoffee;
             return View();
-
         }
     }
 }
