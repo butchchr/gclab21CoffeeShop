@@ -68,6 +68,7 @@
         @Html.ValidationMessageFor(m => m.DateOfBirth)
     </div>
 
+
     @Html.LabelFor(m => m.Username) (Required)
     <div>
         @Html.EditorFor(m => m.Username)
@@ -84,6 +85,24 @@
     <div>
         @Html.EditorFor(m => m.ConfirmPassword)
         @Html.ValidationMessageFor(m => m.ConfirmPassword)
+    </div>
+
+    <div>
+        <label for="FavoriteCoffee">Favorite Coffee: (Required)</label>
+        <br />
+        <select FavCoffee="FavoriteCoffee">
+            <option value="You didn't change this so your favorite is Tea and I hate you">Tell me your Favorite Coffee...please </option>
+            <option value="Shot of espresso and a punch in the mouth ">Shot of espresso and a punch in the mouth</option>
+            <option value="Latte w/ Bourbon">Latte w/ Bourbon</option>
+            <option value="Vodkoffee! ">Vodkoffee! </option>
+            <option value="Sextuple espresso (wink wink)">Sextuple espresso (wink wink)</option>
+            <option value="“Screw you, bladder” – 60 oz. coffee">“Screw you, bladder” – 60 oz. coffee</option>
+            <option value="We stab you so you can call in sick ">We stab you so you can call in sick </option>
+            <option value=".coffee {class:organic, variety:ethiopian, flavor: #hazelnut;}">.coffee {class:organic, variety:ethiopian, flavor: #hazelnut;}</option>
+            <option value="Latte of DOOM  ">Latte of DOOM </option>
+            <option value="Triple brownie espresso">Triple brownie espresso </option>
+            <option value="Triple espresso brownie">Triple espresso brownie </option>
+        </select>
     </div>
 
     <br />

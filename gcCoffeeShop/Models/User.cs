@@ -8,16 +8,14 @@ namespace gcCoffeeShop.Models
 {
     public class User
     {
-        //Title Dropdown
         public string Title { get; set; }
-
+        
         [Display(Name = "First Name")]
         [Required]
         [MaxLength(50)]
         public string FirstName { get; set; }
 
         [Display(Name = "Middle Initial")]
-        [MaxLength(1, ErrorMessage = "Please enter only 1 letter for Middle Initial")]
         public string MiddleInitial { get; set; }
 
         [Display(Name = "Last Name")]
@@ -42,6 +40,8 @@ namespace gcCoffeeShop.Models
         [Required]
         [DataType(DataType.Date)]
         public DateTime? DateOfBirth { get; set; }
+
+        public string FavoriteCoffee { get; set; }
 
         [Required]
         [MinLength(2)]
