@@ -1,4 +1,7 @@
 ﻿body {
+    background-image: url("../mike-kenneally-46284-unsplash.jpg");
+    background-repeat: repeat-y;
+    background-size: 1920px 1080px;
     padding-top: 50px;
     padding-bottom: 20px;
 }
@@ -7,6 +10,7 @@
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
+    background-color: rgba(255,255,255,0.85);
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 

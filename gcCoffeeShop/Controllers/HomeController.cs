@@ -26,16 +26,15 @@ namespace gcCoffeeShop.Controllers
             return View();
         }
 
+        [HttpGet]
         public ActionResult Register()
         {
-            ViewBag.Message = "Register a New Coffee Addict";
-
             return View();
         }
 
-        public ActionResult AddUser(User model)
+        [HttpPost]
+        public ActionResult Register(User model)
         {
-            
             if (ModelState.IsValid)
             {
                 // TODO: save to db
@@ -44,6 +43,7 @@ namespace gcCoffeeShop.Controllers
 
             return View(model);
         }
+
         public ActionResult UserSuccess(string firstName)
         {
             ViewBag.FirstName = firstName;
