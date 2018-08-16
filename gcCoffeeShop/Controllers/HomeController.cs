@@ -38,37 +38,33 @@ namespace gcCoffeeShop.Controllers
         {
             if (ModelState.IsValid)
             {
-                // TODO: save to db
-                return RedirectToAction(nameof(CookieCrisp), new { model.FirstName, model.FavoriteCoffee, });
+                HttpCookie userCookie = Request.Cookies["UserCookie"];
+                if (userCookie == null)
+                {
+                    userCookie = new HttpCookie("UserCookie");
+                    userCookie.Expires = DateTime.UtcNow.AddYears(1);
+                    Response.Cookies.Add(userCookie);
+                }
+
+                userCookie.Values["FirstName"] = model.FirstName;
+                userCookie.Values["FavoriteCoffee"] = model.FavoriteCoffee;
+
+                return RedirectToAction(nameof(CookieCrisp));
             }
 
             return View(model);
         }
 
-        public ActionResult UserSuccess(string firstName)
-        {
-            ViewBag.FirstName = firstName;
-            return View();
-        }
-
         //build cookie
-        public ActionResult CookieCrisp(User model)
+        public ActionResult CookieCrisp()
         {
-            HttpCookie UserCookie;
-            if (Request.Cookies["UserFirstNameCookie"] == null)
+            HttpCookie userCookie = Request.Cookies["UserCookie"];
+            if (userCookie != null)
             {
-                UserCookie = new HttpCookie("UserFirstNameCookie");
-                UserCookie.Expires = DateTime.UtcNow.AddYears(1);
+                ViewBag.FirstName = userCookie.Values["FirstName"];
+                ViewBag.FavoriteCoffee = userCookie.Values["FavoriteCoffee"];
             }
-            else
-            {
-                UserCookie = Request.Cookies["UserFirstNameCookie"];
-            }
-            UserCookie.Values ["FirstName"]  = model.FirstName.ToString();
-            //UserCookie.Values ["FavoriteCoffee"] = model.FavoriteCoffee.ToString();
-            Response.Cookies.Add(UserCookie);
-            ViewBag.FirstName = model.FirstName;
-            ViewBag.FavoriteCoffee = model.FavoriteCoffee;
+
             return View();
         }
     }

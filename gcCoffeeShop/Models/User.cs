@@ -7,9 +7,9 @@ using System.Web;
 namespace gcCoffeeShop.Models
 {
     public class User
-    {   
+    {
         public string Title { get; set; }
-        
+
         [Display(Name = "First Name")]
         [Required]
         [MaxLength(50)]
@@ -51,10 +51,12 @@ namespace gcCoffeeShop.Models
         [Required]
         [MinLength(6)]
         [MaxLength(50)]
+        [DataType(DataType.Password)]
         public string Password { get; set; }
 
         [Display(Name = "Confirm Password")]
         [Required]
+        [DataType(DataType.Password)]
         [Compare(nameof(Password), ErrorMessage = "Passwords do not match")]
         public string ConfirmPassword { get; set; }
     }
