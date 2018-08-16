@@ -23,6 +23,7 @@
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                     <li>@Html.ActionLink("Register", "Register", "Home")</li>
+                    <li>@Html.ActionLink("Products", "Index", "Product")</li>
                 </ul>
             </div>
         </div>
@@ -38,6 +39,7 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/jqueryval")
+    <script src="@Url.Content("~/Scripts/site.js")"></script>
     @RenderSection("scripts", required: false)
 </body>
 </html>

@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "Products";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Products</h2>
+<span id="quantity"></span>
+<button id="add-to-cart" class="btn btn-primary">Add One to Cart</button>
+<a href="@Url.Action("Index","Cart")" id="go-to-cart" class="btn btn-primary">Go to Cart</a>
+
+@section scripts {
+    <script>
+        $(function () {
+            $("#add-to-cart").click(addProduct);
+        });
+
+        function addProduct() {
+            var counterString = readCookie("ProductQuantity");
+            var counter;
+            if (counterString === null) {
+                counter = 1;
+            } else {
+                counter = parseInt(counterString, 10) + 1;
+            }
+
+            createCookie("ProductQuantity", counter);
+            $("#quantity").text(counter);
+        }
+
+
+    </script>    
+}
