@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "Cart";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Cart</h2>
+
+<span id="junk">@ViewBag.Quantity</span> 
+@ViewBag.FavoriteCoffee
+
+<button id="clear-cart" class="btn btn-primary">Clear the cart</button>
+
+
+@section scripts {
+    <script>
+        $(function () {
+            $("#clear-cart").click(clearCart);
+        });
+
+        function clearCart() {
+            eraseCookie("ProductQuantity");
+            $("#junk").text(0);
+        }
+
+    </script>
+}
