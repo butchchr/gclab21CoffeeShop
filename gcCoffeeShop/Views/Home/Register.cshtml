@@ -9,9 +9,9 @@
 <form action="@Url.Action(nameof(HomeController.Register))" method="post">
 
     <div>
-        <label for="Title">Choose your title:</label>
+        @Html.LabelFor(m => m.Title, "Choose your title:") 
         <br />
-        <select title="Title Select">
+        <select title="Title Select" name="@Html.NameFor(m => m.Title)">
             <option value="">Please choose an option </option>
             <option value="Mr.">Mr.</option>
             <option value="Miss">Miss</option>
@@ -23,7 +23,6 @@
             <option value="Hon.">Hon.</option>
             <option value="Dr.">Dr.</option>
         </select>
-
     </div>
 
     @Html.LabelFor(m => m.FirstName) (Required)
@@ -87,12 +86,8 @@
         @Html.ValidationMessageFor(m => m.ConfirmPassword)
     </div>
 
-
-
-
-
     <div>
-        <label for="FavoriteCoffee">Favorite Coffee: (Required)</label>
+        @Html.LabelFor(m=> m.FavoriteCoffee, "Favorite Coffee") (Required)
         <br />
         <select name="@Html.NameFor(m => m.FavoriteCoffee)">
             <option value="You didn't change this so your favorite is Tea and I hate you">Tell me your Favorite Coffee...please</option>
